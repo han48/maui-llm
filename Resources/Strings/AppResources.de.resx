@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msOccurs="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data name="LoadingModel" xml:space="preserve"><value>Modell wird geladen...</value></data>
+  <data name="FindingModel" xml:space="preserve"><value>Modell wird gesucht...</value></data>
+  <data name="NoModelSelected" xml:space="preserve"><value>❌ Kein Modell ausgewählt.</value></data>
+  <data name="TypeMessage" xml:space="preserve"><value>Nachricht eingeben...</value></data>
+  <data name="Send" xml:space="preserve"><value>Senden</value></data>
+  <data name="SelectModel" xml:space="preserve"><value>Modell auswählen</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Abbrechen</value></data>
+  <data name="DeviceInfo" xml:space="preserve"><value>Geräteinformationen</value></data>
+  <data name="ChatHistory" xml:space="preserve"><value>Chatverlauf</value></data>
+  <data name="DeleteConversation" xml:space="preserve"><value>Unterhaltung löschen</value></data>
+  <data name="DeleteWhich" xml:space="preserve"><value>Welche Unterhaltung löschen?</value></data>
+  <data name="Confirm" xml:space="preserve"><value>Bestätigen</value></data>
+  <data name="Delete" xml:space="preserve"><value>Löschen</value></data>
+  <data name="NoConversations" xml:space="preserve"><value>Noch keine Unterhaltungen.</value></data>
+  <data name="SelectConversation" xml:space="preserve"><value>Unterhaltung auswählen</value></data>
+  <data name="DownloadingModel" xml:space="preserve"><value>Modell wird heruntergeladen... {0}% ({1} MB)</value></data>
+  <data name="DownloadIncomplete" xml:space="preserve"><value>❌ Download unvollständig</value></data>
+  <data name="CannotDownload" xml:space="preserve"><value>❌ Modell kann nicht heruntergeladen werden. Netzwerk prüfen.</value></data>
+  <data name="FileDeletedRedownload" xml:space="preserve"><value>Datei gelöscht. Tippen Sie auf ⚙️ zum erneuten Herunterladen.</value></data>
+  <data name="ModelTooLarge" xml:space="preserve"><value>⚠️ Modell ist möglicherweise zu groß für dieses Gerät</value></data>
+  <data name="History" xml:space="preserve"><value>Verlauf</value></data>
+  <data name="OK" xml:space="preserve"><value>OK</value></data>
+  <data name="NewConversation" xml:space="preserve"><value>Neue Unterhaltung</value></data>
+  <data name="SelectModelToDownload" xml:space="preserve"><value>Modell zum Herunterladen auswählen</value></data>
+  <data name="SystemPrompt" xml:space="preserve"><value>Sie sind ein professioneller KI-Assistent. Geben Sie präzise, prägnante und gut strukturierte Antworten. Wenn Sie etwas nicht wissen, sagen Sie es ehrlich. Antworten Sie immer auf Deutsch.</value></data>
+  <data name="Language" xml:space="preserve"><value>Sprache</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>KI-Assistent</value></data>
+</root>

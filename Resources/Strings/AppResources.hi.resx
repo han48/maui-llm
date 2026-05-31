@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msOccurs="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data name="LoadingModel" xml:space="preserve"><value>मॉडल लोड हो रहा है...</value></data>
+  <data name="FindingModel" xml:space="preserve"><value>मॉडल खोजा जा रहा है...</value></data>
+  <data name="NoModelSelected" xml:space="preserve"><value>❌ कोई मॉडल चयनित नहीं है।</value></data>
+  <data name="TypeMessage" xml:space="preserve"><value>संदेश लिखें...</value></data>
+  <data name="Send" xml:space="preserve"><value>भेजें</value></data>
+  <data name="SelectModel" xml:space="preserve"><value>मॉडल चुनें</value></data>
+  <data name="Cancel" xml:space="preserve"><value>रद्द करें</value></data>
+  <data name="DeviceInfo" xml:space="preserve"><value>डिवाइस जानकारी</value></data>
+  <data name="ChatHistory" xml:space="preserve"><value>चैट इतिहास</value></data>
+  <data name="DeleteConversation" xml:space="preserve"><value>बातचीत हटाएं</value></data>
+  <data name="DeleteWhich" xml:space="preserve"><value>कौन सी बातचीत हटाएं?</value></data>
+  <data name="Confirm" xml:space="preserve"><value>पुष्टि करें</value></data>
+  <data name="Delete" xml:space="preserve"><value>हटाएं</value></data>
+  <data name="NoConversations" xml:space="preserve"><value>अभी कोई बातचीत नहीं है।</value></data>
+  <data name="SelectConversation" xml:space="preserve"><value>बातचीत चुनें</value></data>
+  <data name="DownloadingModel" xml:space="preserve"><value>मॉडल डाउनलोड हो रहा है... {0}% ({1} MB)</value></data>
+  <data name="DownloadIncomplete" xml:space="preserve"><value>❌ डाउनलोड अधूरा</value></data>
+  <data name="CannotDownload" xml:space="preserve"><value>❌ मॉडल डाउनलोड नहीं हो सकता। नेटवर्क जांचें।</value></data>
+  <data name="FileDeletedRedownload" xml:space="preserve"><value>फ़ाइल हटा दी गई। पुनः डाउनलोड के लिए ⚙️ दबाएं।</value></data>
+  <data name="ModelTooLarge" xml:space="preserve"><value>⚠️ मॉडल इस डिवाइस के लिए बहुत बड़ा हो सकता है</value></data>
+  <data name="History" xml:space="preserve"><value>इतिहास</value></data>
+  <data name="OK" xml:space="preserve"><value>ठीक है</value></data>
+  <data name="NewConversation" xml:space="preserve"><value>नई बातचीत</value></data>
+  <data name="SelectModelToDownload" xml:space="preserve"><value>डाउनलोड के लिए मॉडल चुनें</value></data>
+  <data name="SystemPrompt" xml:space="preserve"><value>आप एक पेशेवर AI सहायक हैं। सटीक, संक्षिप्त और सुव्यवस्थित उत्तर दें। अगर कुछ नहीं पता तो ईमानदारी से बताएं। हमेशा हिंदी में उत्तर दें।</value></data>
+  <data name="Language" xml:space="preserve"><value>भाषा</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>AI सहायक</value></data>
+</root>

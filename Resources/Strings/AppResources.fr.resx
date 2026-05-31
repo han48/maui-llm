@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msOccurs="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data name="LoadingModel" xml:space="preserve"><value>Chargement du modèle...</value></data>
+  <data name="FindingModel" xml:space="preserve"><value>Recherche du modèle...</value></data>
+  <data name="NoModelSelected" xml:space="preserve"><value>❌ Aucun modèle sélectionné.</value></data>
+  <data name="TypeMessage" xml:space="preserve"><value>Saisissez un message...</value></data>
+  <data name="Send" xml:space="preserve"><value>Envoyer</value></data>
+  <data name="SelectModel" xml:space="preserve"><value>Sélectionner un modèle</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Annuler</value></data>
+  <data name="DeviceInfo" xml:space="preserve"><value>Infos appareil</value></data>
+  <data name="ChatHistory" xml:space="preserve"><value>Historique du chat</value></data>
+  <data name="DeleteConversation" xml:space="preserve"><value>Supprimer la conversation</value></data>
+  <data name="DeleteWhich" xml:space="preserve"><value>Quelle conversation supprimer ?</value></data>
+  <data name="Confirm" xml:space="preserve"><value>Confirmer</value></data>
+  <data name="Delete" xml:space="preserve"><value>Supprimer</value></data>
+  <data name="NoConversations" xml:space="preserve"><value>Aucune conversation.</value></data>
+  <data name="SelectConversation" xml:space="preserve"><value>Sélectionner une conversation</value></data>
+  <data name="DownloadingModel" xml:space="preserve"><value>Téléchargement du modèle... {0}% ({1} Mo)</value></data>
+  <data name="DownloadIncomplete" xml:space="preserve"><value>❌ Téléchargement incomplet</value></data>
+  <data name="CannotDownload" xml:space="preserve"><value>❌ Impossible de télécharger le modèle. Vérifiez le réseau.</value></data>
+  <data name="FileDeletedRedownload" xml:space="preserve"><value>Fichier supprimé. Appuyez sur ⚙️ pour retélécharger.</value></data>
+  <data name="ModelTooLarge" xml:space="preserve"><value>⚠️ Le modèle est peut-être trop volumineux pour cet appareil</value></data>
+  <data name="History" xml:space="preserve"><value>Historique</value></data>
+  <data name="OK" xml:space="preserve"><value>OK</value></data>
+  <data name="NewConversation" xml:space="preserve"><value>Nouvelle conversation</value></data>
+  <data name="SelectModelToDownload" xml:space="preserve"><value>Sélectionner un modèle à télécharger</value></data>
+  <data name="SystemPrompt" xml:space="preserve"><value>Vous êtes un assistant IA professionnel. Fournissez des réponses précises, concises et bien structurées. Si vous ne savez pas, dites-le honnêtement. Répondez toujours en français.</value></data>
+  <data name="Language" xml:space="preserve"><value>Langue</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>Assistant IA</value></data>
+</root>

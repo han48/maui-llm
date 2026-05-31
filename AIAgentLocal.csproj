@@ -1,0 +1,111 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>AIAgentLocal</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>AI Agent Local</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>mr4.1321.aiagentlocal</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<!-- Define IOS_SIMULATOR constant when targeting the iOS simulator (no mtmd native lib available) -->
+		<DefineConstants Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios' AND $(RuntimeIdentifier.Contains('simulator'))">$(DefineConstants);IOS_SIMULATOR</DefineConstants>
+
+		<!-- Disable trimming, use interpreter and dynamic registrar on iOS to prevent runtime crashes -->
+		<MtouchLink Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">None</MtouchLink>
+		<UseInterpreter Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">true</UseInterpreter>
+		<Registrar Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">dynamic</Registrar>
+		<MtouchExtraArgs Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">--registrar:dynamic</MtouchExtraArgs>
+
+		<!-- iOS signing -->
+		<CodesignKey Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">Apple Development</CodesignKey>
+		<CodesignProvision Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">Automatic</CodesignProvision>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.png" Color="#FFFFFF" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.png" Color="#FFFFFF" BaseSize="256,256" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Plugin.Maui.MarkdownView" Version="1.0.5" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10" />
+	</ItemGroup>
+
+	<!-- LLamaSharp: used on desktop platforms only (iOS/Android/macCatalyst use direct P/Invoke) -->
+	<ItemGroup Condition="!$(TargetFramework.Contains('ios')) AND !$(TargetFramework.Contains('android')) AND !$(TargetFramework.Contains('maccatalyst'))">
+		<PackageReference Include="LLamaSharp" Version="0.27.0" />
+	</ItemGroup>
+
+	<!-- Android: native .so from llama.cpp prebuilt (run download-native-libs script first) -->
+	<ItemGroup Condition="$(TargetFramework.Contains('android'))">
+		<AndroidNativeLibrary Include="Platforms\Android\libs\arm64-v8a\*.so" Condition="Exists('Platforms\Android\libs\arm64-v8a')" />
+	</ItemGroup>
+
+	<!-- iOS: XCFramework from llama.cpp prebuilt (linked statically via NativeReference) -->
+	<ItemGroup Condition="$(TargetFramework.Contains('ios'))">
+		<NativeReference Include="Platforms\iOS\Frameworks\build-apple\llama.xcframework" Condition="Exists('Platforms\iOS\Frameworks\build-apple\llama.xcframework')">
+			<Kind>Framework</Kind>
+			<SmartLink>False</SmartLink>
+		</NativeReference>
+		<!-- mtmd static library for vision support (device only; simulator lacks clip dependencies) -->
+		<NativeReference Include="Platforms\iOS\Frameworks\libmtmd.a" Condition="Exists('Platforms\iOS\Frameworks\libmtmd.a') AND !$(RuntimeIdentifier.Contains('simulator'))">
+			<Kind>Static</Kind>
+			<SmartLink>False</SmartLink>
+		</NativeReference>
+	</ItemGroup>
+
+	<!-- macOS Catalyst: native dylib from llama.cpp prebuilt -->
+	<ItemGroup Condition="$(TargetFramework.Contains('maccatalyst'))">
+		<Content Include="Platforms\MacCatalyst\libs\*.dylib" Condition="Exists('Platforms\MacCatalyst\libs')">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>%(Filename)%(Extension)</Link>
+		</Content>
+	</ItemGroup>
+
+	<!-- Windows: LLamaSharp.Backend.Cpu NuGet (includes native DLLs, no download needed) -->
+	<ItemGroup Condition="$(TargetFramework.Contains('windows'))">
+		<PackageReference Include="LLamaSharp.Backend.Cpu" Version="0.27.0" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msOccurs="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data name="LoadingModel" xml:space="preserve"><value>모델 로딩 중...</value></data>
+  <data name="FindingModel" xml:space="preserve"><value>모델 검색 중...</value></data>
+  <data name="NoModelSelected" xml:space="preserve"><value>❌ 모델이 선택되지 않았습니다.</value></data>
+  <data name="TypeMessage" xml:space="preserve"><value>메시지를 입력하세요...</value></data>
+  <data name="Send" xml:space="preserve"><value>보내기</value></data>
+  <data name="SelectModel" xml:space="preserve"><value>모델 선택</value></data>
+  <data name="Cancel" xml:space="preserve"><value>취소</value></data>
+  <data name="DeviceInfo" xml:space="preserve"><value>기기 정보</value></data>
+  <data name="ChatHistory" xml:space="preserve"><value>채팅 기록</value></data>
+  <data name="DeleteConversation" xml:space="preserve"><value>대화 삭제</value></data>
+  <data name="DeleteWhich" xml:space="preserve"><value>어떤 대화를 삭제하시겠습니까?</value></data>
+  <data name="Confirm" xml:space="preserve"><value>확인</value></data>
+  <data name="Delete" xml:space="preserve"><value>삭제</value></data>
+  <data name="NoConversations" xml:space="preserve"><value>대화가 없습니다.</value></data>
+  <data name="SelectConversation" xml:space="preserve"><value>대화 선택</value></data>
+  <data name="DownloadingModel" xml:space="preserve"><value>모델 다운로드 중... {0}% ({1} MB)</value></data>
+  <data name="DownloadIncomplete" xml:space="preserve"><value>❌ 다운로드 미완료</value></data>
+  <data name="CannotDownload" xml:space="preserve"><value>❌ 모델을 다운로드할 수 없습니다. 네트워크를 확인하세요.</value></data>
+  <data name="FileDeletedRedownload" xml:space="preserve"><value>파일이 삭제되었습니다. ⚙️을 탭하여 다시 다운로드하세요.</value></data>
+  <data name="ModelTooLarge" xml:space="preserve"><value>⚠️ 모델이 이 기기에 너무 클 수 있습니다</value></data>
+  <data name="History" xml:space="preserve"><value>기록</value></data>
+  <data name="OK" xml:space="preserve"><value>OK</value></data>
+  <data name="NewConversation" xml:space="preserve"><value>새 대화</value></data>
+  <data name="SelectModelToDownload" xml:space="preserve"><value>다운로드할 모델 선택</value></data>
+  <data name="SystemPrompt" xml:space="preserve"><value>당신은 전문적인 AI 어시스턴트입니다. 정확하고 간결하며 구조화된 답변을 제공하세요. 모르는 것은 솔직히 말하세요. 항상 한국어로 답변하세요.</value></data>
+  <data name="Language" xml:space="preserve"><value>언어</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>AI 어시스턴트</value></data>
+</root>

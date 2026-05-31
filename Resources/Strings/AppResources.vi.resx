@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msOccurs="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data name="LoadingModel" xml:space="preserve"><value>Đang tải model...</value></data>
+  <data name="FindingModel" xml:space="preserve"><value>Đang tìm model...</value></data>
+  <data name="NoModelSelected" xml:space="preserve"><value>❌ Chưa chọn model.</value></data>
+  <data name="TypeMessage" xml:space="preserve"><value>Nhập tin nhắn...</value></data>
+  <data name="Send" xml:space="preserve"><value>Gửi</value></data>
+  <data name="SelectModel" xml:space="preserve"><value>Chọn model</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Hủy</value></data>
+  <data name="DeviceInfo" xml:space="preserve"><value>Thông tin thiết bị</value></data>
+  <data name="ChatHistory" xml:space="preserve"><value>Lịch sử hội thoại</value></data>
+  <data name="DeleteConversation" xml:space="preserve"><value>Xóa hội thoại</value></data>
+  <data name="DeleteWhich" xml:space="preserve"><value>Xóa hội thoại nào?</value></data>
+  <data name="Confirm" xml:space="preserve"><value>Xác nhận</value></data>
+  <data name="Delete" xml:space="preserve"><value>Xóa</value></data>
+  <data name="NoConversations" xml:space="preserve"><value>Chưa có hội thoại nào.</value></data>
+  <data name="SelectConversation" xml:space="preserve"><value>Chọn hội thoại</value></data>
+  <data name="DownloadingModel" xml:space="preserve"><value>Đang tải model... {0}% ({1} MB)</value></data>
+  <data name="DownloadIncomplete" xml:space="preserve"><value>❌ Download chưa hoàn tất</value></data>
+  <data name="CannotDownload" xml:space="preserve"><value>❌ Không thể tải model. Kiểm tra kết nối mạng.</value></data>
+  <data name="FileDeletedRedownload" xml:space="preserve"><value>File đã xóa. Nhấn ⚙️ để tải lại.</value></data>
+  <data name="ModelTooLarge" xml:space="preserve"><value>⚠️ Model quá lớn cho thiết bị</value></data>
+  <data name="History" xml:space="preserve"><value>Lịch sử</value></data>
+  <data name="OK" xml:space="preserve"><value>OK</value></data>
+  <data name="NewConversation" xml:space="preserve"><value>Hội thoại mới</value></data>
+  <data name="SelectModelToDownload" xml:space="preserve"><value>Chọn model để tải</value></data>
+  <data name="SystemPrompt" xml:space="preserve"><value>Bạn là trợ lý AI chuyên nghiệp. Luôn trả lời chính xác, ngắn gọn và có cấu trúc rõ ràng. Nếu không biết, hãy nói thật. Luôn trả lời bằng tiếng Việt.</value></data>
+  <data name="Language" xml:space="preserve"><value>Ngôn ngữ</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>Trợ lý AI</value></data>
+  <data name="Memory" xml:space="preserve"><value>Bộ nhớ</value></data>
+  <data name="NoMemory" xml:space="preserve"><value>Chưa có gì trong bộ nhớ.</value></data>
+</root>

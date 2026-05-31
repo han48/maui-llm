@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AIAgentLocal.ViewModels"
+             xmlns:models="clr-namespace:AIAgentLocal.Models"
+             xmlns:local="clr-namespace:AIAgentLocal"
+             xmlns:md="clr-namespace:Plugin.Maui.MarkdownView;assembly=Plugin.Maui.MarkdownView"
+             x:Class="AIAgentLocal.MainPage"
+             Title="{Binding AppTitle}"
+             BackgroundColor="{AppThemeBinding Light=#FEFAFF, Dark=#1a1a2e}"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True">
+
+    <ContentPage.BindingContext>
+        <vm:ChatViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding NewConversationCommand}" Order="Primary" Priority="0"
+                     IconImageSource="{FontImage Glyph='&#xe145;', FontFamily='MaterialIcons', Size=24}" />
+        <ToolbarItem Command="{Binding OpenConversationCommand}" Order="Primary" Priority="1"
+                     IconImageSource="{FontImage Glyph='&#xe0b7;', FontFamily='MaterialIcons', Size=24}" />
+        <ToolbarItem Command="{Binding DeleteConversationCommand}" Order="Primary" Priority="2"
+                     IconImageSource="{FontImage Glyph='&#xe872;', FontFamily='MaterialIcons', Size=24}" />
+        <ToolbarItem Command="{Binding ChangeModelCommand}" Order="Primary" Priority="3"
+                     IconImageSource="{FontImage Glyph='&#xe1db;', FontFamily='MaterialIcons', Size=24}" />
+        <ToolbarItem Command="{Binding ChangeLanguageCommand}" Order="Primary" Priority="4"
+                     IconImageSource="{FontImage Glyph='&#xe8e2;', FontFamily='MaterialIcons', Size=24}" />
+        <ToolbarItem Command="{Binding ShowDeviceInfoCommand}" Order="Primary" Priority="5"
+                     IconImageSource="{FontImage Glyph='&#xe88e;', FontFamily='MaterialIcons', Size=24}" />
+    </ContentPage.ToolbarItems>
+
+    <Grid x:Name="MainGrid" RowDefinitions="*,Auto,Auto" Padding="0">
+
+        <!-- Chat Messages (status bar is header of collection) -->
+        <CollectionView Grid.Row="0"
+                        x:Name="ChatCollectionView"
+                        ItemsSource="{Binding Messages}"
+                        Margin="8,0"
+                        ItemsUpdatingScrollMode="KeepLastItemInView">
+            <CollectionView.Header>
+                <Border BackgroundColor="{AppThemeBinding Light=#F8F0FA, Dark=#2D1B4E}"
+                        Padding="8,8"
+                        Margin="0,0,0,4"
+                        StrokeShape="RoundRectangle 8,8,8,8"
+                        StrokeThickness="0">
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="🤖" FontSize="14" VerticalOptions="Center" />
+                        <Label Text="{Binding StatusText}" 
+                               FontSize="12" 
+                               VerticalOptions="Center"
+                               TextColor="{AppThemeBinding Light=#666, Dark=#CBA8CE}" />
+                        <ActivityIndicator IsRunning="{Binding IsLoading}" 
+                                           IsVisible="{Binding IsLoading}"
+                                           HeightRequest="12" WidthRequest="12"
+                                           Color="{AppThemeBinding Light=#B06AB3, Dark=#D4A5D6}"
+                                           VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </Border>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ChatMessage">
+                    <Grid Padding="4,4">
+                        <Border Padding="12,8"
+                                StrokeShape="RoundRectangle 12,12,12,12"
+                                StrokeThickness="0"
+                                MaximumWidthRequest="500"
+                                HorizontalOptions="{Binding IsUser, Converter={StaticResource BoolToAlignmentConverter}}">
+                            <Border.BackgroundColor>
+                                <MultiBinding Converter="{StaticResource MessageBackgroundConverter}">
+                                    <Binding Path="IsUser" />
+                                </MultiBinding>
+                            </Border.BackgroundColor>
+                            <VerticalStackLayout Spacing="4">
+                                <!-- Attached image (for user messages with images) -->
+                                <Image Source="{Binding ImageSource}"
+                                       IsVisible="{Binding HasImage}"
+                                       MaximumHeightRequest="200"
+                                       MaximumWidthRequest="300"
+                                       Aspect="AspectFit"
+                                       Margin="0,0,0,4" />
+                                <!-- Think block (collapsible, smaller text) -->
+                                <Border IsVisible="{Binding HasThinkContent}"
+                                        BackgroundColor="{AppThemeBinding Light=#F0E8F3, Dark=#352845}"
+                                        StrokeShape="RoundRectangle 8,8,8,8"
+                                        StrokeThickness="0"
+                                        Padding="8,6"
+                                        Margin="0,0,0,4">
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label Text="💭 THINK" 
+                                               FontSize="10" 
+                                               FontAttributes="Bold"
+                                               TextColor="{AppThemeBinding Light=#9B7DFF, Dark=#B89AFF}" />
+                                        <Label Text="{Binding TrimmedThinkContent}"
+                                               FontSize="11"
+                                               TextColor="{AppThemeBinding Light=#666, Dark=#AAA}"
+                                               LineBreakMode="WordWrap" />
+                                    </VerticalStackLayout>
+                                </Border>
+                                <!-- User: plain text, AI: markdown -->
+                                <Label Text="{Binding TrimmedContent}"
+                                       IsVisible="{Binding IsUser}"
+                                       TextColor="{Binding IsUser, Converter={StaticResource BoolToTextColorConverter}}"
+                                       FontSize="14"
+                                       LineBreakMode="WordWrap" />
+                                <md:MarkdownView MarkdownText="{Binding TrimmedContent}"
+                                                 IsVisible="{Binding IsAi}" />
+                                <!-- Loading indicator for generating message -->
+                                <ActivityIndicator IsRunning="{Binding IsGenerating}"
+                                                   IsVisible="{Binding IsGenerating}"
+                                                   HeightRequest="14" WidthRequest="14"
+                                                   HorizontalOptions="Start"
+                                                   Color="#888" />
+                                <!-- Stats line -->
+                                <Label Text="{Binding Stats}"
+                                       IsVisible="{Binding Stats, Converter={StaticResource StringToBoolConverter}}"
+                                       FontSize="11"
+                                       TextColor="#888"
+                                       Opacity="0.8" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Input Area -->
+        <Border Grid.Row="1"
+                BackgroundColor="{AppThemeBinding Light=#F8F0FA, Dark=#2D1B4E}"
+                Padding="12,8"
+                StrokeThickness="0">
+            <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto,Auto" ColumnSpacing="8" RowSpacing="6">
+                <!-- Think toggle -->
+                <HorizontalStackLayout Grid.Row="0" Grid.ColumnSpan="4" Spacing="6">
+                    <Label Text="💭" FontSize="14" VerticalOptions="Center" />
+                    <Switch IsToggled="{Binding ThinkingEnabled}" 
+                            OnColor="#B06AB3"
+                            VerticalOptions="Center" />
+                    <Label Text="Think" FontSize="12" 
+                           TextColor="{AppThemeBinding Light=#888, Dark=#AAA}"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <!-- Attached image preview -->
+                <Border Grid.Row="1" Grid.ColumnSpan="4"
+                        IsVisible="{Binding HasAttachedImage}"
+                        StrokeShape="RoundRectangle 8,8,8,8"
+                        Stroke="{AppThemeBinding Light=#E8D5EB, Dark=#5A3D6E}"
+                        BackgroundColor="{AppThemeBinding Light=#F5E6F7, Dark=#2A2040}"
+                        Padding="8"
+                        Margin="0,0,0,4">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Image Grid.Column="0"
+                               Source="{Binding AttachedImageSource}"
+                               HeightRequest="60"
+                               WidthRequest="60"
+                               Aspect="AspectFill" />
+                        <Label Grid.Column="1"
+                               Text="{Binding AttachedFileLabel}"
+                               FontSize="12"
+                               TextColor="{AppThemeBinding Light=#666, Dark=#AAA}"
+                               VerticalOptions="Center"
+                               Margin="8,0" />
+                        <Button Grid.Column="2"
+                                Text="✕"
+                                Command="{Binding RemoveImageCommand}"
+                                BackgroundColor="Transparent"
+                                TextColor="#E05555"
+                                FontSize="16"
+                                Padding="8,4"
+                                VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+                <!-- Attach button (vision models only) -->
+                <Button Grid.Row="2" Grid.Column="0"
+                        Text="📎"
+                        Command="{Binding AttachImageCommand}"
+                        IsVisible="{Binding ShowAttachButton}"
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light=#B06AB3, Dark=#D4A5D6}"
+                        FontSize="20"
+                        Padding="4,8"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        VerticalOptions="Center" />
+                <!-- Input + buttons -->
+                <Border Grid.Row="2" Grid.Column="1"
+                        StrokeShape="RoundRectangle 20,20,20,20"
+                        Stroke="{AppThemeBinding Light=#E8D5EB, Dark=#5A3D6E}"
+                        BackgroundColor="{AppThemeBinding Light=White, Dark=#2A2040}"
+                        Padding="12,4">
+                    <Entry x:Name="ChatEntry"
+                           Placeholder="{Binding PlaceholderText}"
+                           Text="{Binding InputText}"
+                           ReturnType="Send"
+                           ReturnCommand="{Binding SendCommand}"
+                           IsEnabled="{Binding CanInput}"
+                           FontSize="14" />
+                </Border>
+                <Button Grid.Row="2" Grid.Column="2"
+                        Text="{Binding SendButtonText}"
+                        Command="{Binding SendCommand}"
+                        IsVisible="{Binding IsNotGenerating}"
+                        BackgroundColor="#B06AB3"
+                        TextColor="White"
+                        FontSize="14"
+                        CornerRadius="20"
+                        Padding="16,8"
+                        HeightRequest="40"
+                        VerticalOptions="Center" />
+                <Button Grid.Row="2" Grid.Column="3"
+                        Text="✕"
+                        Command="{Binding CancelCommand}"
+                        IsVisible="{Binding IsGenerating}"
+                        BackgroundColor="#E05555"
+                        TextColor="White"
+                        FontSize="16"
+                        CornerRadius="20"
+                        Padding="12,8"
+                        HeightRequest="40"
+                        VerticalOptions="Center" />
+            </Grid>
+        </Border>
+
+        <!-- Performance Footer -->
+        <Border Grid.Row="2"
+                BackgroundColor="{AppThemeBinding Light=#F0E4F2, Dark=#1F1530}"
+                Padding="12,6"
+                StrokeThickness="0"
+                IsVisible="{Binding PerformanceText, Converter={StaticResource StringToBoolConverter}}">
+            <Label Text="{Binding PerformanceText}"
+                   FontSize="12"
+                   TextColor="{AppThemeBinding Light=#666, Dark=#999}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+        </Border>
+
+    </Grid>
+
+</ContentPage>

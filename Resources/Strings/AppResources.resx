@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msOccurs="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data name="LoadingModel" xml:space="preserve"><value>Loading model...</value></data>
+  <data name="FindingModel" xml:space="preserve"><value>Finding model...</value></data>
+  <data name="NoModelSelected" xml:space="preserve"><value>❌ No model selected.</value></data>
+  <data name="TypeMessage" xml:space="preserve"><value>Type a message...</value></data>
+  <data name="Send" xml:space="preserve"><value>Send</value></data>
+  <data name="SelectModel" xml:space="preserve"><value>Select model</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="DeviceInfo" xml:space="preserve"><value>Device info</value></data>
+  <data name="ChatHistory" xml:space="preserve"><value>Chat history</value></data>
+  <data name="DeleteConversation" xml:space="preserve"><value>Delete conversation</value></data>
+  <data name="DeleteWhich" xml:space="preserve"><value>Delete which conversation?</value></data>
+  <data name="Confirm" xml:space="preserve"><value>Confirm</value></data>
+  <data name="Delete" xml:space="preserve"><value>Delete</value></data>
+  <data name="NoConversations" xml:space="preserve"><value>No conversations yet.</value></data>
+  <data name="SelectConversation" xml:space="preserve"><value>Select conversation</value></data>
+  <data name="DownloadingModel" xml:space="preserve"><value>Downloading model... {0}% ({1} MB)</value></data>
+  <data name="DownloadIncomplete" xml:space="preserve"><value>❌ Download incomplete</value></data>
+  <data name="CannotDownload" xml:space="preserve"><value>❌ Cannot download model. Check network.</value></data>
+  <data name="FileDeletedRedownload" xml:space="preserve"><value>File deleted. Tap ⚙️ to re-download.</value></data>
+  <data name="ModelTooLarge" xml:space="preserve"><value>⚠️ Model may be too large for this device</value></data>
+  <data name="History" xml:space="preserve"><value>History</value></data>
+  <data name="OK" xml:space="preserve"><value>OK</value></data>
+  <data name="NewConversation" xml:space="preserve"><value>New conversation</value></data>
+  <data name="SelectModelToDownload" xml:space="preserve"><value>Select model to download</value></data>
+  <data name="SystemPrompt" xml:space="preserve"><value>You are a professional AI assistant. You are helpful, accurate, and concise. Always provide well-structured and informative responses. If you do not know something, say so honestly. Respond in the same language the user uses.</value></data>
+  <data name="Language" xml:space="preserve"><value>Language</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>AI Agent Local</value></data>
+  <data name="Memory" xml:space="preserve"><value>Memory</value></data>
+  <data name="NoMemory" xml:space="preserve"><value>No memory stored yet.</value></data>
+</root>

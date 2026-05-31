@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msOccurs="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data name="LoadingModel" xml:space="preserve"><value>正在加载模型...</value></data>
+  <data name="FindingModel" xml:space="preserve"><value>正在查找模型...</value></data>
+  <data name="NoModelSelected" xml:space="preserve"><value>❌ 未选择模型。</value></data>
+  <data name="TypeMessage" xml:space="preserve"><value>输入消息...</value></data>
+  <data name="Send" xml:space="preserve"><value>发送</value></data>
+  <data name="SelectModel" xml:space="preserve"><value>选择模型</value></data>
+  <data name="Cancel" xml:space="preserve"><value>取消</value></data>
+  <data name="DeviceInfo" xml:space="preserve"><value>设备信息</value></data>
+  <data name="ChatHistory" xml:space="preserve"><value>聊天记录</value></data>
+  <data name="DeleteConversation" xml:space="preserve"><value>删除对话</value></data>
+  <data name="DeleteWhich" xml:space="preserve"><value>删除哪个对话？</value></data>
+  <data name="Confirm" xml:space="preserve"><value>确认</value></data>
+  <data name="Delete" xml:space="preserve"><value>删除</value></data>
+  <data name="NoConversations" xml:space="preserve"><value>暂无对话。</value></data>
+  <data name="SelectConversation" xml:space="preserve"><value>选择对话</value></data>
+  <data name="DownloadingModel" xml:space="preserve"><value>正在下载模型... {0}% ({1} MB)</value></data>
+  <data name="DownloadIncomplete" xml:space="preserve"><value>❌ 下载未完成</value></data>
+  <data name="CannotDownload" xml:space="preserve"><value>❌ 无法下载模型。请检查网络连接。</value></data>
+  <data name="FileDeletedRedownload" xml:space="preserve"><value>文件已删除。点击 ⚙️ 重新下载。</value></data>
+  <data name="ModelTooLarge" xml:space="preserve"><value>⚠️ 模型对此设备可能过大</value></data>
+  <data name="History" xml:space="preserve"><value>历史</value></data>
+  <data name="OK" xml:space="preserve"><value>确定</value></data>
+  <data name="NewConversation" xml:space="preserve"><value>新对话</value></data>
+  <data name="SelectModelToDownload" xml:space="preserve"><value>选择要下载的模型</value></data>
+  <data name="SystemPrompt" xml:space="preserve"><value>你是一个专业的AI助手。请提供准确、简洁、结构清晰的回答。如果不知道，请诚实说明。请始终用中文回答。</value></data>
+  <data name="Language" xml:space="preserve"><value>语言</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>AI助手</value></data>
+</root>

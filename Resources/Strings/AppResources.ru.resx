@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msOccurs="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <data name="LoadingModel" xml:space="preserve"><value>Загрузка модели...</value></data>
+  <data name="FindingModel" xml:space="preserve"><value>Поиск модели...</value></data>
+  <data name="NoModelSelected" xml:space="preserve"><value>❌ Модель не выбрана.</value></data>
+  <data name="TypeMessage" xml:space="preserve"><value>Введите сообщение...</value></data>
+  <data name="Send" xml:space="preserve"><value>Отправить</value></data>
+  <data name="SelectModel" xml:space="preserve"><value>Выбрать модель</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Отмена</value></data>
+  <data name="DeviceInfo" xml:space="preserve"><value>Информация об устройстве</value></data>
+  <data name="ChatHistory" xml:space="preserve"><value>История чата</value></data>
+  <data name="DeleteConversation" xml:space="preserve"><value>Удалить беседу</value></data>
+  <data name="DeleteWhich" xml:space="preserve"><value>Какую беседу удалить?</value></data>
+  <data name="Confirm" xml:space="preserve"><value>Подтвердить</value></data>
+  <data name="Delete" xml:space="preserve"><value>Удалить</value></data>
+  <data name="NoConversations" xml:space="preserve"><value>Бесед пока нет.</value></data>
+  <data name="SelectConversation" xml:space="preserve"><value>Выбрать беседу</value></data>
+  <data name="DownloadingModel" xml:space="preserve"><value>Загрузка модели... {0}% ({1} МБ)</value></data>
+  <data name="DownloadIncomplete" xml:space="preserve"><value>❌ Загрузка не завершена</value></data>
+  <data name="CannotDownload" xml:space="preserve"><value>❌ Не удалось загрузить модель. Проверьте сеть.</value></data>
+  <data name="FileDeletedRedownload" xml:space="preserve"><value>Файл удалён. Нажмите ⚙️ для повторной загрузки.</value></data>
+  <data name="ModelTooLarge" xml:space="preserve"><value>⚠️ Модель может быть слишком большой для этого устройства</value></data>
+  <data name="History" xml:space="preserve"><value>История</value></data>
+  <data name="OK" xml:space="preserve"><value>OK</value></data>
+  <data name="NewConversation" xml:space="preserve"><value>Новая беседа</value></data>
+  <data name="SelectModelToDownload" xml:space="preserve"><value>Выберите модель для загрузки</value></data>
+  <data name="SystemPrompt" xml:space="preserve"><value>Вы профессиональный AI-ассистент. Давайте точные, краткие и структурированные ответы. Если не знаете — скажите честно. Всегда отвечайте на русском языке.</value></data>
+  <data name="Language" xml:space="preserve"><value>Язык</value></data>
+  <data name="AppTitle" xml:space="preserve"><value>AI Ассистент</value></data>
+</root>
